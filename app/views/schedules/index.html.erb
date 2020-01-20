@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Scheduled Date</th>
+      <th scope="col">Signed In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schedules.each do |d| %>
+    <tr>
+      <td><%= schedules.date %></td>
+      <td><%= timesheets.signed_in %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Scheduled Date</th>
+      <th scope="col">Signed In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @timesheets.each do |date| %>
+    <tr>
+      <td><%= date.date %></td>
+      <td><%= date.signed_in %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

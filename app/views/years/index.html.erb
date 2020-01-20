@@ -1,0 +1,18 @@
+<h1>Year index page</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Year ID</th>
+      <th scope="col">Year Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @years.each do |year| %>
+    <tr>
+      <td><%= year.id %></td>
+      <td><%= year.year %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

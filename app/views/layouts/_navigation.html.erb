@@ -9,8 +9,15 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
+          <% if current_user.student? %>
+            <li><%= link_to "Sign into Workstudy", new_timesheet_path  %></li>
+            <li><%= link_to "View Timesheet", timesheets_path  %></li>
+            <li><%= link_to "Edit Account", edit_user_registration_path  %></li>
+          <% end %>
+          <% if current_user.admin? %>
+            <li><%= link_to "Set Schedule", edit_multiple_schedules_path  %></li>
+          <% end %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete%></li>
-          <li><%= link_to "Edit", edit_user_registration_path  %></li>
         <% else %>
           <li><%= link_to "Sign Up", new_user_registration_path  %></li>
           <li><%= link_to "Sign In", new_user_session_path  %></li>

@@ -1,0 +1,27 @@
+<%= form_tag update_multiple_schedules_path, method: :put do %>
+
+  <table class="table table-bordered">
+
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Before/After School</th>
+        <th scope="col">During School</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @schedules.each do |date| %>
+        <%= fields_for "dates[]", date do |f| %>
+          <tr>
+            <td><%= date.date%></td>
+            <td><%= f.check_box :before_after_school%></td>
+            <td><%= f.check_box :during_school %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="form-group">
+    <%= submit_tag "Update", class: 'btn btn-primary' %>
+  </div>
+<% end %>

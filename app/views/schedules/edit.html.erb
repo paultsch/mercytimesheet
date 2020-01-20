@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+
+<%= form_for @schedules do |f| %>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Before/After School</th>
+      <th scope="col">During School</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schedules.each do |date| %>
+    <tr>
+      <td>date.date</td>
+      <td><%= date.%></td>
+      <td><%= date.signed_in %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
