@@ -1,0 +1,16 @@
+<h1>Edit student page</h1>
+
+<h2>Name: <%= @student.fullname %></h2>
+
+<%= form_for @timesheet, url: add_student_timesheet_admins_path, method: :post do |f| %>
+
+  <div class="form-group">
+    <%= f.label :signed_in %>
+    <%= f.date_field :signed_in, selected: Date.today, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+
+<% end %>

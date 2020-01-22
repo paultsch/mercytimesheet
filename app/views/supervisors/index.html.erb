@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1>Supervisor Dashboard for Admin</h1>
+  <hr class="my-4">
+  <%= link_to "Add New Supervisor", new_supervisor_path, class: "btn btn-success" %>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Delete Supervisor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @supervisors.each do |supervisor| %>
+    <tr>
+      <td><%= supervisor.id %></td>
+      <td><%= link_to "#{supervisor.fullname}", supervisor_path(supervisor.id) %></td>
+      <td><%= mail_to supervisor.email %></td>
+      <td><%= link_to "Delete", supervisor_path(supervisor.id), method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

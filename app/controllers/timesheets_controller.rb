@@ -13,7 +13,7 @@ class TimesheetsController < ApplicationController
     @timesheet.year_id = 1
     if @timesheet.save
       flash[:success] = "Your timesheet has been saved."
-      redirect_to root_path
+      redirect_to subdomain_root_path
     else
       render 'new'
     end

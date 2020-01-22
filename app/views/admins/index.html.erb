@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <h1>Student Dashboard</h1>
+  <hr class="my-4">
+  <%= link_to "Add New Student", new_users_admin_path, class: "btn btn-primary" %>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Sign In</th>
+      <th scope="col">Delete Student</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+    <tr>
+      <td><%= student.id %></td>
+      <td><%= link_to "#{student.fullname}", admin_path(student.id) %></td>
+      <td><%= mail_to student.email %></td>
+      <td><%= link_to "Sign Student In", edit_student_admins_path(student.id) %></td>
+      <td><%= link_to "Delete", users_admin_path(student.id), method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

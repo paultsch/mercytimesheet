@@ -1,0 +1,33 @@
+<div class="jumbotron">
+  <h2>Supervisor</h2>
+  <h1><%= @supervisor.fullname %> </h1>
+  <hr class="my-4">
+  <%= link_to "Edit Supervisor Account", edit_supervisor_path(@supervisor.id), class: "btn btn-primary" %>
+  <%= link_to "Delete Supervisor", supervisor_path(@supervisor.id), class: "btn btn-danger", method: :delete %>
+
+</div>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Sign In</th>
+      <th scope="col">Delete Student</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%# @students.each do |student| %>
+    <tr>
+      <td><%#= student.id %></td>
+      <td><%#= link_to "#{student.fullname}", admin_path(student.id) %></td>
+      <td><%#= mail_to student.email %></td>
+      <td><%#= link_to "Sign Student In", edit_student_admins_path(student.id) %></td>
+      <td><%#= link_to "Delete", users_admin_path(student.id), method: :delete %></td>
+    </tr>
+    <%# end %>
+  </tbody>
+</table>

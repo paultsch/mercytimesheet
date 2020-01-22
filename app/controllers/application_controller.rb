@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def configure_permitted_parameters
-     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit( :email, :password, :password_confirmation, :admin, :supervisor, :student, :first_name, :last_name, :grade ) }
-     devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :admin, :supervisor, :student, :first_name, :last_name, :grade] )
+  def index
+    if current_user.admin
+      redirect_to admin_root_path
+    elsif current_user.supervisor
+      redirect_to supervisor_root_path
+    else
+      redirect_to student_root_path
+    end
   end
 
 

@@ -11,4 +11,8 @@ class User < ApplicationRecord
          #   user_stocks.where(stock_id: stock.id).exists?
          # end
 
+    def fullname
+      "#{first_name} #{last_name}"
+    end
+
 end

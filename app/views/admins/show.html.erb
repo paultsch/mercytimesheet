@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h2>Student</h2>
+  <h1><%= @student.fullname %> </h1>
+  <hr class="my-4">
+  <%= link_to "Edit Student Account", edit_users_admin_path(@student.id), class: "btn btn-primary" %>
+  <%= link_to "Sign Student In", edit_student_admins_path(@student.id), class: "btn btn-success" %>
+  <%= link_to "Unsign In Student ", edit_student_admins_path(@student.id), class: "btn btn-danger" %>
+
+</div>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Scheduled Date</th>
+      <th scope="col">Signed In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @timesheet.each do |date| %>
+    <tr>
+      <td><%= date.date %></td>
+      <td><%= date.signed_in %></td>
+    </tr>
+    <% end %>
+
+
+  </tbody>
+</table>
